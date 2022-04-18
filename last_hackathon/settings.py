@@ -28,7 +28,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = ['*']
+
+#config('ALLOWED_HOSTS').split(',')
 
 
 # Application definition
@@ -53,9 +55,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -161,11 +163,19 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5
 }
 
+#mmm
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:8000',
 ]
 
+#mmm
+CORS_ORIGIN_WHITELIST = [
+    'https://localhost:3000',
+    'https://localhost:3001',
+]
 
 # 888-888
 SIMPLE_JWT = {
