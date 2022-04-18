@@ -13,10 +13,12 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 STATUS_CHOICES = (
     ('In stock', 'В наличии'),
     ('out of stock', 'Нет в наличии')
 )
+
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
